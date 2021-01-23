@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import unicodedata
 
-unicode_chars = frozenset(chr(c) for c in range(sys.maxunicode + 1))
+unicode_chars = (chr(c) for c in range(sys.maxunicode + 1))
 
 # Group Unicode characters by category
 skip_subcategories = {"Co", "Cn"}  # Skip "private use" and "not assigned" categories

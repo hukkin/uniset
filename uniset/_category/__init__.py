@@ -3,5 +3,5 @@
 THIS PACKAGE IS AUTO-GENERATED. DO NOT EDIT!
 """
 
-SUBCATEGORIES = ('Lo', 'So', 'Po', 'Sm', 'Lu', 'Nl', 'Ll', 'Cs', 'Mn', 'Nd', 'No', 'Cf', 'Sk', 'Sc', 'Mc', 'Ps', 'Lm', 'Me', 'Pe', 'Zs', 'Cc', 'Pd', 'Pi', 'Lt', 'Pf', 'Pc', 'Zl', 'Zp')
-MAINCATEGORIES = ('S', 'Z', 'L', 'P', 'N', 'M')
+SUBCATEGORIES = ('Cc', 'Zs', 'Po', 'Sc', 'Ps', 'Pe', 'Sm', 'Pd', 'Nd', 'Lu', 'Sk', 'Pc', 'Ll', 'So', 'Lo', 'Pi', 'Cf', 'No', 'Pf', 'Lt', 'Lm', 'Mn', 'Me', 'Mc', 'Nl', 'Zl', 'Zp', 'Cs')
+MAINCATEGORIES = ('L', 'P', 'Z', 'N', 'M', 'S')
