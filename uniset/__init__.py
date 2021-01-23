@@ -1,7 +1,7 @@
 from uniset._category import MAINCATEGORIES, SUBCATEGORIES
 
 __all__ = SUBCATEGORIES + MAINCATEGORIES + ("WHITESPACE", "PUNCTUATION")
-__version__ = "0.0.0"
+__version__ = "0.0.1"
 
 import importlib
 import string
