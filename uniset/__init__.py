@@ -29,7 +29,7 @@ def _get_subcategory_set(subcategory: str) -> FrozenSet[str]:
 
 def _get_maincategory_set(category: str) -> FrozenSet[str]:
     subcategories = {c for c in SUBCATEGORIES if c.startswith(category)}
-    char_set = frozenset()
+    char_set: FrozenSet[str] = frozenset()
     for subcategory in subcategories:
         char_set |= _get_subcategory_set(subcategory)
     return char_set
