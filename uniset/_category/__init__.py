@@ -1,6 +1,7 @@
 """A package containing category-based sets of Unicode code points.
 
-THIS PACKAGE IS AUTO-GENERATED. DO NOT EDIT!"""
+THIS PACKAGE IS AUTO-GENERATED. DO NOT EDIT!
+"""
 
-SUBCATEGORIES = ('Co', 'Cn', 'Lo', 'Cs', 'Sk', 'So', 'No', 'Ll', 'Nd', 'Mn', 'Lu', 'Lm', 'Po', 'Mc', 'Sm', 'Pe', 'Nl', 'Sc', 'Cf', 'Pd', 'Lt', 'Zs', 'Cc', 'Pi', 'Ps', 'Pf', 'Pc', 'Me', 'Zl', 'Zp')
-MAINCATEGORIES = ('M', 'S', 'C', 'N', 'Z', 'L', 'P')
+SUBCATEGORIES = ('Lo', 'So', 'Po', 'Sm', 'Lu', 'Nl', 'Ll', 'Cs', 'Mn', 'Nd', 'No', 'Cf', 'Sk', 'Sc', 'Mc', 'Ps', 'Lm', 'Me', 'Pe', 'Zs', 'Cc', 'Pd', 'Pi', 'Lt', 'Pf', 'Pc', 'Zl', 'Zp')
+MAINCATEGORIES = ('S', 'Z', 'L', 'P', 'N', 'M')

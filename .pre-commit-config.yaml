@@ -17,6 +17,7 @@ repos:
   rev: e66be67b9b6811913470f70c28b4d50f94d05b22  # frozen: 20.8b1
   hooks:
   - id: black
+    exclude: ^uniset/_category/
 - repo: https://gitlab.com/pycqa/flake8
   rev: bb6a530e28acab8d3551043b3e8709db8bcbac6b  # frozen: 3.8.4
   hooks:
@@ -25,6 +26,7 @@ repos:
     - flake8-bugbear
     - flake8-builtins
     - flake8-comprehensions
+    exclude: ^uniset/_category/
 - repo: https://github.com/myint/docformatter
   rev: 67919ee01837761f2d954d7fbb08c12cdd38ec5a  # frozen: v1.4
   hooks:
