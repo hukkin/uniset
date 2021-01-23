@@ -1,8 +1,8 @@
 """A script to autogenerate uniset._category package."""
-import sys
-import unicodedata
 import collections
 from pathlib import Path
+import sys
+import unicodedata
 
 unicode_chars = frozenset(chr(c) for c in range(sys.maxunicode + 1))
 

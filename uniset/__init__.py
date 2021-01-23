@@ -1,11 +1,11 @@
-from uniset._category import SUBCATEGORIES, MAINCATEGORIES
+from uniset._category import MAINCATEGORIES, SUBCATEGORIES
 
 __all__ = SUBCATEGORIES + MAINCATEGORIES + ("WHITESPACE", "PUNCTUATION")
 __version__ = "0.0.0"
 
-from typing import FrozenSet
 import importlib
 import string
+from typing import FrozenSet
 
 
 def __getattr__(name: str) -> FrozenSet[str]:
@@ -21,7 +21,9 @@ def __getattr__(name: str) -> FrozenSet[str]:
 
 
 def _get_subcategory_set(subcategory: str) -> FrozenSet[str]:
-    subcategory_module = importlib.import_module("._category." + subcategory.lower(), __name__)
+    subcategory_module = importlib.import_module(
+        "._category." + subcategory.lower(), __name__
+    )
     return getattr(subcategory_module, subcategory)
 
 
