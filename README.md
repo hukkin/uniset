@@ -47,3 +47,11 @@ import uniset
 
 assert "." in uniset.PUNCTUATION
 ```
+
+## Alternatives
+
+[`unicategories`](https://gitlab.com/ergoithz/unicategories) also provides access to Unicode categories.
+The implementation is based on "range groups" and iterators, and should be faster and more memory efficient than `uniset` for inclusion checks.
+
+If you need the `frozenset` API (unions, intersections, etc.), or the sets beyond Unicode categories (whitespace, punctuation), use `uniset`.
+Otherwise `unicategories` is the better option.
