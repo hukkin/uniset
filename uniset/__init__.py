@@ -5,19 +5,33 @@ __version__ = "0.0.1"
 
 import importlib
 import string
+import sys
 from typing import FrozenSet
+
+_THIS_MODULE = sys.modules[__name__]
 
 
 def __getattr__(name: str) -> FrozenSet[str]:
+    """Attribute getter fallback.
+
+    We use `__getattr__` instead of importing all frozensets directly in
+    this module to achieve lazy loading, i.e. calling `import uniset`
+    will not load any of the sets into memory.
+    """
     if name in SUBCATEGORIES:
-        return _get_subcategory_set(name)
-    if name in MAINCATEGORIES:
-        return _get_maincategory_set(name)
-    if name == "WHITESPACE":
-        return frozenset(string.whitespace) | _get_subcategory_set("Zs")
-    if name == "PUNCTUATION":
-        return frozenset(string.punctuation) | _get_maincategory_set("P")
-    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+        char_set = _get_subcategory_set(name)
+    elif name in MAINCATEGORIES:
+        char_set = _get_maincategory_set(name)
+    elif name == "WHITESPACE":
+        char_set = frozenset(string.whitespace) | _get_subcategory_set("Zs")
+    elif name == "PUNCTUATION":
+        char_set = frozenset(string.punctuation) | _get_maincategory_set("P")
+    else:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    # Cache the value in this module for next time, so that `__getattr__`
+    # is only called once per `name`.
+    setattr(_THIS_MODULE, name, char_set)
+    return char_set
 
 
 def _get_subcategory_set(subcategory: str) -> FrozenSet[str]:
