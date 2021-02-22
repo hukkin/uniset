@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from uniset._category import MAINCATEGORIES, SUBCATEGORIES
 
 __all__ = SUBCATEGORIES + MAINCATEGORIES + ("WHITESPACE", "PUNCTUATION")
@@ -6,12 +8,11 @@ __version__ = "0.1.0"
 import importlib
 import string
 import sys
-from typing import FrozenSet
 
 _THIS_MODULE = sys.modules[__name__]
 
 
-def __getattr__(name: str) -> FrozenSet[str]:
+def __getattr__(name: str) -> frozenset[str]:
     """Attribute getter fallback.
 
     We use `__getattr__` instead of importing all frozensets directly in
@@ -34,16 +35,16 @@ def __getattr__(name: str) -> FrozenSet[str]:
     return char_set
 
 
-def _get_subcategory_set(subcategory: str) -> FrozenSet[str]:
+def _get_subcategory_set(subcategory: str) -> frozenset[str]:
     subcategory_module = importlib.import_module(
         "._category." + subcategory.lower(), __name__
     )
     return getattr(subcategory_module, subcategory)
 
 
-def _get_maincategory_set(category: str) -> FrozenSet[str]:
+def _get_maincategory_set(category: str) -> frozenset[str]:
     subcategories = {c for c in SUBCATEGORIES if c.startswith(category)}
-    char_set: FrozenSet[str] = frozenset()
+    char_set: frozenset[str] = frozenset()
     for subcategory in subcategories:
         char_set |= _get_subcategory_set(subcategory)
     return char_set
